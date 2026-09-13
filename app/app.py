@@ -305,37 +305,49 @@ if not gps.empty:
 
 st.header("⚠️ Detected Movement Anomalies")
 
-if not gps.empty and "is_anomaly" in gps.columns:
+if not gps.empty:
 
-    anomaly_data = gps[
-        gps["is_anomaly"] == 1
-    ].copy()
+    if "is_anomaly" in gps.columns:
+        anomaly_data = gps[gps["is_anomaly"] == 1].copy()
 
-    st.write(
-        f"Detected anomaly records: **{len(anomaly_data)}**"
-    )
+    elif "anomaly_score" in gps.columns:
+        anomaly_data = gps.sort_values(
+            "anomaly_score",
+            ascending=False
+        ).head(20).copy()
 
-    display_cols = [
-        c for c in [
-            "user_id",
-            "timestamp",
-            "latitude",
-            "longitude",
-            "speed",
-            "cluster"
+    else:
+        anomaly_data = pd.DataFrame()
+
+    if not anomaly_data.empty:
+
+        st.write(
+            f"Detected anomaly records: **{len(anomaly_data)}**"
+        )
+
+        display_cols = [
+            c for c in [
+                "user_id",
+                "timestamp",
+                "latitude",
+                "longitude",
+                "speed_kmh",
+                "location",
+                "anomaly_score"
+            ]
+            if c in anomaly_data.columns
         ]
-        if c in anomaly_data.columns
-    ]
 
-    st.dataframe(
-        anomaly_data[display_cols].head(20),
-        use_container_width=True
-    )
+        st.dataframe(
+            anomaly_data[display_cols],
+            use_container_width=True
+        )
+
+    else:
+        st.info("No anomaly information available in the current dataset.")
 
 else:
-    st.info(
-        "Anomaly information not available."
-    )
+    st.info("GPS data not available.")
 
 
 # =========================================================

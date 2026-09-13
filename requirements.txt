@@ -1,0 +1,8 @@
+pandas
+numpy
+matplotlib
+scikit-learn
+folium
+streamlit
+streamlit-folium
+joblib

@@ -1,0 +1,7 @@
+Factor,Score,Weight,Weighted_Contribution
+ML Prediction,100.0,0.3,30.0
+Historical Frequency,100.0,0.2,20.0
+Distance Relevance,99.9,0.15,14.985
+Time Relevance,100.0,0.1,10.0
+Anomaly Evidence,0.14,0.1,0.014000000000000002
+Route Similarity,0.0,0.15,0.0

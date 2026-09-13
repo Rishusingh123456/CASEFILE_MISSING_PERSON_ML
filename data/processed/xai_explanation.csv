@@ -1,0 +1,2 @@
+Area,Priority_Score,Priority,ML_Score,Historical_Score,Route_Score,Distance_Score,Time_Score,Anomaly_Score,Explanation
+9,75.0,High,100.0,100.0,0.0,99.9,100.0,0.14,The area has a high historical visit frequency. The area's distance is consistent with the historical movement range. The current time is strongly associated with historical visits to this area. The location prediction model assigns a relatively high probability to this area.

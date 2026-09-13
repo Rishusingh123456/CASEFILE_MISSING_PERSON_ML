@@ -3,3 +3,9 @@ __pycache__/
 *.pyc
 .DS_Store
 
+data/processed/gps_cleaned.csv
+data/processed/gps_collected.csv
+data/processed/gps_clustered.csv
+data/processed/gps_movement_features.csv
+data/processed/gps_anomalies.csv
+data/processed/eda/location_frequency.csv

@@ -41,7 +41,7 @@ def load_csv(filename, folder=PROCESSED_DIR):
     return pd.DataFrame()
 
 
-gps = load_csv("gps_anomalies.csv")
+gps = load_csv("gps_anomalies_sample.csv")
 priority = load_csv("search_priority_scores.csv")
 route = load_csv("predicted_route.csv")
 xai = load_csv("xai_explanation.csv")
